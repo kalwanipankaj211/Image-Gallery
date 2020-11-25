@@ -51,13 +51,14 @@ export class SignUpComponent implements OnInit {
       this.authService.signUp(formData).subscribe((data: any) => {
         if (data) {
           console.log("token: " + data);
+          this.notificationService.displayToast('success', 'SUCCESS','User Registered Successfully');
           this.router.navigate(['/auth/login']);
           // this.storageService.setInSession('5d-solutions.TOKEN', data.access_token);
         } else {
         }
       }, error => {
-        // this.notificationService.displayToast('error',error.error.message);
-        console.log("error from register",error.error.error);
+        this.notificationService.displayToast('error', 'ERROR',error.error.error.message);
+        // console.log("error from register",error.error.error);
       });
   }
 

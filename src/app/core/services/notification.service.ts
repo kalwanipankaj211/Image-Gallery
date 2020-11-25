@@ -29,7 +29,7 @@ private _createToastyOptions(title: string, msg: string, timeout: number) {
         msg,
         showClose: true,
         timeout,
-        theme: 'default'
+        theme: 'material'
     };
 }
 }
