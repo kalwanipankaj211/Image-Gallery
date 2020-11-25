@@ -1,0 +1,79 @@
+@import '../../../assets/styles/theme/5d-solutions_themes.scss';
+.signup_container
+{
+    margin-top:5%;
+    background-color: $background-white;
+    width: 28%;
+    box-shadow: 0 0 3px 3px rgba(0,0,0,.175);
+    height: auto;
+    overflow: auto;
+    padding-bottom:30px;
+    .form-row{
+      h5{
+        font-size: 30px;
+        color: $d_pink;
+        font-family: 'Dosis', sans-serif;
+      }
+    }
+    .image-row
+    {
+            .img-heading-section
+            {
+                padding-left:75px !important;
+                .logoImage
+                {
+                    width:100%;
+                }
+            }
+    }
+    .signup-form-section
+    {
+        .sign-up-button
+        {
+            margin-top:23px;
+            .sign-bt
+            {
+
+                background-color: $d_blue;
+            }
+        }
+    }
+}
+@media screen and (max-width:567px) {
+    .signup_container{
+        width: 90%;
+        margin-top:20%;
+        // margin:100px 15px;
+        .image-row
+        {
+                .img-heading-section
+                {
+                    padding-left:75px !important;
+                    .logoImage
+                    {
+                        width:100%;
+                    }
+                }
+        }
+        }
+
+    }
+
+    @media screen and (max-width:768px) {
+        .signup_container{
+            width: 90%;
+            // margin:100px 15px;
+            .image-row
+            {
+                    .img-heading-section
+                    {
+                        padding-left:100px;
+                        .logoImage
+                        {
+                            width:100%;
+                        }
+                    }
+            }
+            }
+
+        }

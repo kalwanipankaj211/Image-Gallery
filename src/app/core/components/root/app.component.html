@@ -1,0 +1,5 @@
+<!-- <app-header *ngIf="hasLoginUrl()" ></app-header> -->
+<!-- <app-header></app-header> -->
+<ng2-toasty aria-live="assertive" role="alert" [position]="'top-center'"></ng2-toasty>
+<router-outlet></router-outlet>
+<mat-spinner [diameter]=70  value = 100  *ngIf = "loaderService.isLoading | async" mode="indeterminate"></mat-spinner>

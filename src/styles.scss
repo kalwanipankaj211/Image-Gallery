@@ -1,0 +1,30 @@
+@import "../node_modules/ng2-toasty/bundles/style-default.css";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+/* This is the actual theme file we created asset style folder where font and variable are kept*/
+@import "./assets/styles/theme/5d-solutions_themes.scss";
+@import "./assets/styles/theme/5d-solutions_themes/5d-solutions-variables.scss";
+@import "../node_modules/c3/c3.min.css";
+
+html, body , app-root{ height: 100%; margin: 0}
+body { margin: 0; font-family: 'Dosis', sans-serif; background-color: $grey-light}
+
+// body{
+//   font-family: 'Dosis', sans-serif;
+// }
+.mat-form-field
+{
+  font-family: 'Dosis', sans-serif;
+  // font-stretch: expanded;
+}
+.mat-spinner
+{
+  position: fixed;
+  left: 46%;
+  bottom: 46%;
+}
+.mat-progress-spinner circle, .mat-spinner circle {
+  stroke: $d_pink;
+}
+// app-auth,body{
+//     background-image: url('./assets/resources/images/Slide1.jpg');
+// }

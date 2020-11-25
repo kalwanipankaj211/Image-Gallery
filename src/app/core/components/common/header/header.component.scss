@@ -1,0 +1,63 @@
+@import '../../../../../assets/styles/theme/5d-solutions_themes.scss';
+.header-setion {
+    // border-bottom: 2px solid red;
+    background-color: $background-white;
+    .header-content {
+        .header-img-section {
+            .dev-sec-logo {
+            height: 79px;
+            border-right: 1px solid $grey_light;
+            }
+
+            @media screen and (max-width:567px) {
+            .dev-sec-logo {
+                width:60%;
+                }
+            }
+        }
+        .toggle-button
+        {
+            float: left;
+            .menu-icon
+            {
+                position: absolute;
+                padding: 25px 10px;
+                cursor: pointer;
+                color: $grey_dark;
+            }
+            .menu-icon :focus{
+                background-color: none;
+                color:none;
+            }
+
+        }
+    }
+
+}
+@media screen and (max-width:567px) {
+    .header-setion {
+        width: 100%;
+        // border-bottom: 2px solid $newgen_orange;
+        background-color: $background-white;
+        height: 50px;
+        .header-content {
+
+          .header-img-section {
+            .dev-sec-logo {
+               display: none;
+                }
+            }
+            .toggle-button
+            {
+                .menu-icon
+                {
+                    padding: 15px 10px;
+                    cursor: pointer;
+                    color: $grey_dark;
+                }
+
+            }
+        }
+
+    }
+    }

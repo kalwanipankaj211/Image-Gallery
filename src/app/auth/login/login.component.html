@@ -1,0 +1,49 @@
+<div class="container login_container">
+  <div class="row image-row">
+    <div class="img-heading-section">
+      <img src="../../../assets/resources/images/5d-squarelogo-png.png" class="logoImage">
+    </div>
+  </div>
+  <div class="row form-row">
+    <div class="col-md-12 col-lg-12 col-xs-12">
+      <h5>Sign In</h5>
+    </div>
+      <div class="col-md-12 col-lg-12 col-xs-12">
+        <div class="login-form-section">
+            <form [formGroup] ="loginForm" (ngSubmit)= "continue()">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <mat-form-field class="w-100">
+                              <mat-label>Email</mat-label>
+                              <input  id="email" name="email" type="text" matInput formControlName="email" >
+                                <mat-error *ngIf= "loginForm.get('email').hasError('required')">
+                                  Please Enter email
+                                </mat-error>
+                                <mat-error *ngIf= "loginForm.get('email').errors?.pattern">
+                                  Please enter valid email address- e.g. johndoe@email.com
+                              </mat-error>
+                          </mat-form-field>
+                      </div>
+
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                        <mat-form-field class="w-100">
+                          <mat-label>Password</mat-label>
+                          <input id="password" name="password" type="password" matInput formControlName="password" >
+                          <mat-error *ngIf= "loginForm.get('password').hasError('required')">
+                            Please Enter Password
+                          </mat-error>
+                      </mat-form-field>
+                      </div>
+
+                      <div class="col-md-12 col-sm-12 col-xs-12">
+                        <!-- <hr aria-hidden="true" tabindex="-1" /> -->
+                        <div class="sign-in-button mb-2 mt-6">
+                          <button mat-raised-button color="primary" class="sign-bt w-100" id="submit">Sign In</button>
+                        </div>
+                      </div>
+                </div>
+            </form>
+        </div>
+      </div>
+  </div>
+</div>
