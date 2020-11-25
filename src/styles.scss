@@ -19,7 +19,9 @@ body { margin: 0; font-family: 'Dosis', sans-serif; background-color: $grey-ligh
 }
 .mat-spinner
 {
+  z-index: 9999;
   position: fixed;
+  opacity: 1;
   left: 46%;
   bottom: 46%;
 }

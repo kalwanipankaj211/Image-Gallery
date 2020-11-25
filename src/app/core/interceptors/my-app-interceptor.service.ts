@@ -13,11 +13,11 @@ export class MyAppInterceptorService  implements HttpInterceptor{
   intercept(req : HttpRequest<any> , next: HttpHandler): Observable<HttpEvent<any>>{
 
     this.loaderService.isLoading.next(true);
-    document.getElementById("solutinDiv").style.opacity = "0.5";
+    document.getElementById("solutionDiv").style.opacity = "0.5";
     return next.handle(req).pipe(
       finalize(
         () =>{
-          document.getElementById("solutinDiv").style.opacity = "1";
+          document.getElementById("solutionDiv").style.opacity = "1";
           this.loaderService.isLoading.next(false);
         }
       )
