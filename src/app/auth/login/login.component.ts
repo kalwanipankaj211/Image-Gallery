@@ -46,7 +46,11 @@ export class LoginComponent implements OnInit {
   }
 
   continue() {
-    const formData = this.loginForm.getRawValue();
+    if(!this.loginForm.valid)
+    {
+      return;
+    }
+      const formData = this.loginForm.getRawValue();
       this.authService.login(formData).subscribe((data: any) => {
         if (data) {
           console.log("token: " + data.token);

@@ -49,6 +49,10 @@ export class SignUpComponent implements OnInit {
 		});
   }
   signUp() {
+    if(!this.signupForm.valid)
+    {
+      return;
+    }
     const formData = this.signupForm.getRawValue();
       this.authService.signUp(formData).subscribe((data: any) => {
         if (data) {
