@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import {
+  Event,
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router
+} from '@angular/router';
 import { LoaderService } from '../../services/loader/loader.service';
 @Component({
   selector: 'app-root',
@@ -9,9 +16,13 @@ import { LoaderService } from '../../services/loader/loader.service';
 export class AppComponent {
   title = '5d-solutions-app';
   router: any;
+  showHeader : boolean;
   constructor(private _router : Router, public loaderService : LoaderService)
   {
-    this.router = _router.url;
+    this._router.events.subscribe((event: Event) => {
+      if(_router.url.includes('gallery') )
+        this.showHeader = false;
+    });
   }
   hasLoginUrl(): boolean{
     return this.router.includes('/login');

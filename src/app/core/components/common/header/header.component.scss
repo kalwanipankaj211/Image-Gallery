@@ -4,33 +4,32 @@
     background-color: $background-white;
     .header-content {
         .header-img-section {
-            .dev-sec-logo {
-            height: 79px;
-            border-right: 1px solid $grey_light;
-            }
+            // .dev-sec-logo {
+            // height: 79px;
+            // border-right: 1px solid $grey_light;
+            // }
 
-            @media screen and (max-width:567px) {
-            .dev-sec-logo {
-                width:60%;
-                }
+            // @media screen and (max-width:567px) {
+            // .dev-sec-logo {
+            //     width:60%;
+            //     }
+            // }
+            .company-logo{
+              width: 100px;
+              height: 100px;
             }
         }
-        .toggle-button
-        {
-            float: left;
-            .menu-icon
-            {
-                position: absolute;
-                padding: 25px 10px;
-                cursor: pointer;
-                color: $grey_dark;
-            }
-            .menu-icon :focus{
-                background-color: none;
-                color:none;
-            }
-
-        }
+    }
+    .app-menu{
+      .app-menu-content{
+         .signup-button {
+          .mat-flat-button{
+            font-family: 'Dosis', sans-serif;
+              font-size: 18px;
+              color: $d_blue;
+          }
+         }
+      }
     }
 
 }
@@ -39,23 +38,10 @@
         width: 100%;
         // border-bottom: 2px solid $newgen_orange;
         background-color: $background-white;
-        height: 50px;
+        height: 100px;
         .header-content {
 
           .header-img-section {
-            .dev-sec-logo {
-               display: none;
-                }
-            }
-            .toggle-button
-            {
-                .menu-icon
-                {
-                    padding: 15px 10px;
-                    cursor: pointer;
-                    color: $grey_dark;
-                }
-
             }
         }
 
