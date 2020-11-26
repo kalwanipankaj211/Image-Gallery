@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component , ViewChild} from '@angular/core';
+import {HeaderComponent} from '../../components/common/header/header.component';
+import { PersistenceService } from '../../../core/services/persistence.service';
 import {
   Event,
   NavigationCancel,
@@ -17,14 +19,25 @@ export class AppComponent {
   title = '5d-solutions-app';
   router: any;
   showHeader : boolean;
-  constructor(private _router : Router, public loaderService : LoaderService)
+  @ViewChild(HeaderComponent) headercmp: HeaderComponent;
+  constructor(private _router : Router, public loaderService : LoaderService , private _persistenceService: PersistenceService)
   {
     this._router.events.subscribe((event: Event) => {
       if(_router.url.includes('gallery') )
+      {
+        this.showHeader = true;
+      }
+      else{
         this.showHeader = false;
+      }
     });
   }
-  hasLoginUrl(): boolean{
-    return this.router.includes('/login');
+  logOutFromApp()
+  {
+    this._persistenceService.removeFromStorage('TOKEN');
+    this._router.navigate(['/auth/login']);
   }
+  // hasLoginUrl(): boolean{
+  //   return this.router.includes('/login');
+  // }
 }

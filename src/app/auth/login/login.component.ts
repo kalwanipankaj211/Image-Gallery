@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
           console.log("token: " + data.token);
           this.persistenceService.setInStorage('TOKEN',data.token)
           this.notificationService.displayToast('success', 'SUCCESS','User Logged In Successfully');
-          // this.router.navigate(['/auth/login']);
+          this.router.navigate(['/gallery/add-gallery']);
         } else {
         }
       }, error => {
