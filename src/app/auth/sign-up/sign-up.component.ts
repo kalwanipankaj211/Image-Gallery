@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, FormControl, FormArray, Validators } from '@ang
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import {NotificationService} from '../../core/services/notification.service';
+import {PersistenceService} from  '../../core/services/persistence.service'
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
@@ -16,7 +17,8 @@ export class SignUpComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private notificationService : NotificationService
+    private notificationService : NotificationService,
+    private persistenceService : PersistenceService
   ) {
   }
 
@@ -50,16 +52,27 @@ export class SignUpComponent implements OnInit {
     const formData = this.signupForm.getRawValue();
       this.authService.signUp(formData).subscribe((data: any) => {
         if (data) {
-          console.log("token: " + data);
+          console.log("token: " + data.token);
           this.notificationService.displayToast('success', 'SUCCESS','User Registered Successfully');
           this.router.navigate(['/auth/login']);
-          // this.storageService.setInSession('5d-solutions.TOKEN', data.access_token);
         } else {
         }
       }, error => {
-        this.notificationService.displayToast('error', 'ERROR',error.error.error.message);
-        // console.log("error from register",error.error.error);
+        if(error.error.message)
+        {
+        this.notificationService.displayToast('error', 'ERROR',error.error.message);
+
+        }
+        else{
+        this.notificationService.displayToast('error', 'ERROR',error.message);
+
+        }
       });
+  }
+
+  signIn()
+  {
+    this.router.navigate(['/auth/login']);
   }
 
 }

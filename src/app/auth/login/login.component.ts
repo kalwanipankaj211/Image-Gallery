@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 // import {AuthService} from '../../core/services/auth.service';
 import { PersistenceService } from '../../core/services/persistence.service';
 import { AuthService } from '../services/auth.service';
+import {NotificationService} from '../../core/services/notification.service';
+
 
 @Component({
   selector: 'app-login',
@@ -19,7 +21,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private storageService: PersistenceService) {
+    private persistenceService: PersistenceService,
+    private notificationService : NotificationService) {
   }
 
   ngOnInit(): void {
@@ -43,17 +46,30 @@ export class LoginComponent implements OnInit {
   }
 
   continue() {
-    this.authService.login(this.loginForm.value).subscribe((data: any) => {
-      if (data) {
-        console.log("token: " + data.access_token);
-        this.storageService.setInSession('5d-solutions.TOKEN', data.access_token);
-        this.router.navigate(['dashboard/project']);
-      } else {
-        // console.log("data Not Found");
-      }
-    }, error => {
-      // console.log('error in Project Service',error);
-    });
+    const formData = this.loginForm.getRawValue();
+      this.authService.login(formData).subscribe((data: any) => {
+        if (data) {
+          console.log("token: " + data.token);
+          this.persistenceService.setInStorage('TOKEN',data.token)
+          this.notificationService.displayToast('success', 'SUCCESS','User Logged In Successfully');
+          // this.router.navigate(['/auth/login']);
+        } else {
+        }
+      }, error => {
+        if(error.error.message)
+        {
+        this.notificationService.displayToast('error', 'ERROR',error.error.message);
 
+        }
+        else{
+        this.notificationService.displayToast('error', 'ERROR',error.message);
+
+        }
+      });
+
+  }
+  signUp()
+  {
+    this.router.navigate(['auth/sign-up'])
   }
 }

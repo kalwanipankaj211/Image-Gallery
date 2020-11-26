@@ -37,6 +37,20 @@
                 background-color: $d_blue;
             }
         }
+        .anchor-div
+        {
+          .anchor-text
+          {
+            color : $d_blue;
+            padding-left: 26%;
+            font-family: 'Dosis', sans-serif;
+          }
+          .anchor-text:hover{
+            color : $d_blue;
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
     }
 }
 @media screen and (max-width:567px) {
