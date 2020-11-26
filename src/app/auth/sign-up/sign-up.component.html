@@ -17,7 +17,7 @@
                               <mat-label>Username</mat-label>
                               <input  id="name" name = "username" type="text" matInput formControlName="username" >
                               <mat-error *ngIf= "signupForm.get('username').hasError('required')">
-                                Please Enter Name
+                                Please Enter Username
                               </mat-error>
                           </mat-form-field>
                       </div>
@@ -26,7 +26,7 @@
                           <mat-label>Email</mat-label>
                           <input id="email" type="text" name="email" matInput formControlName="email" >
                           <mat-error *ngIf= "signupForm.get('email').hasError('required')">
-                            Please Enter email
+                            Please Enter Email
                           </mat-error>
                           <mat-error *ngIf= "signupForm.get('email').errors?.pattern">
                             Please enter valid email address- e.g. johndoe@email.com
